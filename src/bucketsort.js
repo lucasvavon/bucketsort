@@ -17,7 +17,7 @@ function insertionSort(array) {
 
 module.exports = insertionSort;
 
-const bucketConcat = (arr, size = 2) => {
+const bucketConcat = (arr, size = 10) => {
     const min = Math.min(...arr);
     const max = Math.max(...arr);
     const buckets = Array.from(
