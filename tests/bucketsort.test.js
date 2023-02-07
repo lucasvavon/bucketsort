@@ -18,6 +18,10 @@ test('return bucket concat with two value', function () {
     expect(bucketConcat(input3)).toStrictEqual([1.9, 18.12]);
 });
 
+test('return bucket concat with two value already sorted', function () {
+    expect(bucketConcat(input4)).toStrictEqual([1.7, 1.9]);
+});
+
 
 
 

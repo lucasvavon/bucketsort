@@ -4,6 +4,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
+node_modules/
 
 # Module
 node_modules/
