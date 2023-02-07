@@ -1,22 +1,3 @@
-
-// InsertionSort to be used within bucket sort
-function insertionSort(array) {
-    const length = array.length;
-
-    for(let i = 1; i < length; i++) {
-        let temp = array[i];
-        let j;
-        for( j = i - 1; j >= 0 && array[j] > temp; j--) {
-            array[j+1] = array[j];
-        }
-        array[j+1] = temp;
-    }
-
-    return array;
-}
-
-module.exports = insertionSort;
-
 const bucketConcat = (arr, size = 10) => {
     const min = Math.min(...arr);
     const max = Math.max(...arr);
@@ -29,14 +10,16 @@ const bucketConcat = (arr, size = 10) => {
     });
 
     // concat bucket
-    return buckets.flat() //.reduce((acc, b) => [...acc, ...b.sort((a, b) => a - b)], []);
+    return buckets
 };
 
-const bucketConcatSort = (arr) => {
-
+const bucketsToFlat = (arr, size = 10) => {
+    return bucketConcat(arr, size).flat()
 }
 
-//console.log('step 1 :', bucketConcat([], 2))
-//console.log('step 2 :', bucketConcat([1.9], 2))
+const bucketConcatSort = (arr, size = 10) => {
+    return bucketConcat(arr, size).reduce((acc, b) => [...acc, ...b.sort((a, b) => a - b)], []);
+}
 
-
+module.exports = bucketsToFlat;
+module.exports = bucketConcatSort;
